@@ -1,0 +1,117 @@
+﻿<style>
+    body {
+        margin: 0;
+        height: 100%;
+        overflow: scroll;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('images/gettyimages-943836.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 0px 0px 0px 0px;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        
+    }
+    table:hover {
+        opacity: .8
+    }
+    .search {
+        width: 100%;
+        position: relative
+    }
+
+    .searchTerm {
+        float: left;
+        width: 100%;
+        border: 3px solid #00B4CC;
+        padding: 0px;
+        height: 40px;
+        border-radius: 5px;
+        outline: none;
+        color: #9DBFAF;
+    }
+
+        .searchTerm:focus {
+            color: #00B4CC;
+        }
+
+    .searchButton {
+        position: absolute;
+        right: -50px;
+        width: 40px;
+        height: 36px;
+        border: 1px solid #00B4CC;
+        background: #00B4CC;
+        text-align: center;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    /*Resize the wrap to see the search bar change!*/
+    .wrap {
+        width: 30%;
+    }
+
+    .um {
+        font-size: 30px;
+    }
+
+    a {
+        color: darkorange;
+    }
+</style>
+<div class="container" style="margin-bottom:100px">
+    <div class="page-header col-lg-offset-1" style="color:white">
+        <h2>Search Teams</h2>
+    </div>
+    <div class="row col-lg-offset-4">
+        <div class="col-lg-8 ">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" data-bind="click: gTeams2," type="button"><i class="fa fa-search"></i></button>
+                </span>
+                <input type="text" class="form-control" id="term" value="" data-bind="value:term" placeholder="Pesquise a equipa aqui?" style="color:black">
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" data-bind="click:deleteTeams" type="button"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+
+    <section class="col-lg-offset-1 col-lg-11">
+        <div class="page-header">
+            <div class="col-lg-1"><h2 data-bind="text:className" style="color:aliceblue"></h2></div>
+            <div class="col-lg-11" ><h4 data-bind="text: '['+teams().length+']'" style="color:aliceblue"></h4></div>
+        </div>
+        <table class="table table-bordered table-striped table-condensed " style="background-color:aliceblue">
+            <thead>
+                <tr><th>Name</th><th>Acronym</th><th>Country</th></tr>
+            </thead>
+            <tbody data-bind="foreach: teams">
+                <tr>
+                    <td><i class="fa fa-map-marker"></i> <a data-bind="html:team_long_name, attr:{ href: '#teams/'+id+'/'+team_fifa_api_id, title: name}"></a><img style="height:35px;" onerror="this.src='images/default-team-logo-500.png'" data-bind="attr:{src:'https://cdn.sofifa.org/18/teams/'+team_fifa_api_id+'.png'}" /></td>
+                    <td data-bind="html:team_short_name"> </td>
+                    <td><a data-bind="html:Country.name, attr:{ href: '#countries/'+Country.id, title: name}"></a></td>
+
+                </tr>
+
+            </tbody>
+        </table>
+        <!-- ko if:error -->
+        <div class="bs-callout bs-callout-danger" data-bind="html:error"></div>
+        <!-- /ko -->
+        
+    </section>
+</div>
+
+
+    

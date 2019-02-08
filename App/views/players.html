@@ -1,0 +1,89 @@
+﻿<style>
+body {
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0px 0px 0px 0px;
+    background-attachment: fixed;
+    background-size: cover;
+    
+    background-image: url('images/rooney.jpg');
+    margin: 0;
+    height: 100%;
+    overflow: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.um {
+    font-size: 30px;
+}
+table:hover {
+    opacity: .8
+}
+
+a {
+    color: darkorange;
+}
+.subtitle {
+    border-top: 1px solid #DFDFDF;
+    margin-top: 20px;
+    float: left;
+    display: inline;
+}
+
+.subtitle h2 {
+    float: left;
+}
+
+</style>
+<section>
+    <div class="container" style="margin-bottom:100px">
+        <div class="page-header">
+            <h1 style="color:aliceblue">Search Players</h1>
+        </div>
+        <div class="row col-lg-offset-4">
+            <div class="col-lg-8 ">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" data-bind="click:gPlayers2"," type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                    <input type="text" class="form-control" id="term" value="" data-bind="value:term" placeholder="Pesquise o jogador aqui!">
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" data-bind="click:deletePlayers" type="button"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-12">
+            <div class=" container subtitle">                
+                <h2 style="color:aliceblue">Player Details</h2>            
+                <h4 style="color:aliceblue" class="num" data-bind="html: '['+ players().length +']' "></h4>            
+            </div>
+            
+            
+        </div>
+        <table class="table   table-bordered  table-condensed "style="background-color:aliceblue; margin-bottom:250px">
+            <thead>
+                <tr><th>Name</th><th>Height</th><th>Weight</th><th>Birthday</th></tr>
+            </thead>
+            <tbody data-bind="foreach: players">
+                <tr>
+                    <td><i class="fa fa-users" aria-hidden="true"></i> <a data-bind="html:player_name, attr:{ href: '#players/'+id, title: name}"></a><img style="height:35px;" onerror="this.src='images/player.png'" data-bind="attr:{src:'https://cdn.sofifa.org/18/players/'+player_fifa_api_id+'.png'}" /></td>
+                    <td data-bind="html:height"> </td>
+                    <td data-bind="html:weight"> </td>
+                    <td data-bind="html:birthday.split('T')[0]"><i class="fa fa-birthday-cake" aria-hidden="true"></i></td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+
+</section>

@@ -1,0 +1,71 @@
+﻿<style>
+
+body {
+    margin: 0;
+    background-image: url('images/images (1).jpg') !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0px 0px 0px 0px;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.subtitle {
+    
+    margin-top: 20px;
+    float: left;
+    display: inline;
+}
+
+.subtitle h2.num {
+    float: left;
+}
+        
+</style>
+<section class="" style="color:antiquewhite">
+    <div class="container" style="margin-bottom:100px">
+        <div class="col-lg-12">
+
+            <div>
+                <h2 data-bind="text:className" class="page-header" style="font-size:30px"></h2>
+            </div>
+
+            <div class="col-lg-12">
+                <div class=" container subtitle">
+                    <h2 class="num" data-bind="html: countries().name"></h2>
+                    <h4 class="" data-bind="html:'['+ countries().id+']'"></h4>
+                    
+                </div>
+                
+                <a style="font-size:30px" data-bind="html:leagues().name,attr:{ href: '#leagues/'+countries().id, title: name}"></a>
+
+            </div>
+
+
+        </div>
+
+        <div class="col-lg-6">
+            <img data-bind="attr:{src:'images/'+countries().id+'.png'}" style="height:300px; width:500px"/> 
+        </div>
+        <!--Google Maps-->
+        <div class=" col-lg-6">
+            <iframe id="map" width="600"
+                    height="400"
+                    frameborder="0" style="border:0"
+                    data-bind="attr:{src:'https://www.google.com/maps/embed/v1/place?key=AIzaSyCwFDBUkfvXQho5UI8OQRD_iR681LXQtG8&q='+countries().name }"></iframe>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+

@@ -1,0 +1,71 @@
+﻿<style>
+    /* Style the video: 100% width and height to cover the entire window */
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    }
+
+    /* Add some content at the bottom of the video/page */
+    .text {
+        font-size: 18px;
+    }
+    .title {
+        font-size: 45px;
+        width: 100%;
+        text-decoration: underline
+    }
+    .subtitle {
+        font-size: 30px;
+    }
+    a {
+        color: darkorange;
+    }
+</style>
+<section style="margin-bottom:100px">
+    <video autoplay muted loop id="myVideo">
+        <source src="images/video.mp4" type="video/mp4">
+    </video>
+    <div class="container" style="background: rgba(0, 0, 0, 0.5); color:aliceblue" ;>
+        <p class="page-header"><b class="title ">About</b></p>
+        <p class="text">Este trabalho foi realizado no âmbito da disciplina de Introdução às Tecnologias Web (ITW), cadeira do 1º Semestre da Licenciatura em Engenharia Informática (LEI) da Universidade de Aveiro (Ano Letivo 2017/2018). O objetivo foi criar um site/app que fosse extensível aos vários browsers dos vários sistemas operativos das diferentes plataformas móveis existentes. Para tal, recorreu-se a várias "features":</p>
+        <ul>
+            <li class="text">'JS & HTML Modularity'</li>
+            <li class="text">'Clean MV* Architecture'</li>
+            <li class="text">'Simple App Lifecycle'</li>
+            <li class="text">'Eventing, Modals, Message Boxes, etc.'</li>
+            <li class="text">'Navigation & Screen State Management'</li>
+            <li class="text">'Consistent Async Programming w/ Promises'</li>
+            <li class="text">'App Bundling and Optimization'</li>
+            <li class="text">'Use any Backend Technology'</li>
+            <li class="text">'Built on top of jQuery, Knockout & RequireJS'</li>
+        </ul>
+        <h1 class="title">Docente da unidade curricular:</h1><p class="subtitle">Joaquim Sousa Pinto <a>(jsp@ua.pt)</a></p>
+        <p class="title"><b>Autores do Projeto</b></p>
+        <div class="container row">
+            <div>
+                <div class="col-lg-3"><img src="images/foto.asp.dib" style="width:150px ; height:150px" /></div>
+                <div class="col-lg-6">
+                    <p><b class="subtitle" style="text-decoration: underline">João Vasconcelos</b></p>
+                    <p class="text">Nº Mecanográfico: 88808</p>
+                    <p class="text">Estudante de Licenciatura em Engenharia Informática (LEI)</p>
+                    <p class="text">Universidade de Aveiro (UA)</p>
+                </div>
+            </div>
+        </div>
+        <div class="container row">
+            <div>
+                <div class="col-lg-3"><img src="images/Capturar.png" style="width:150px ; height:150px" /></div>
+                <div class="col-lg-6">
+                    <p><b class="subtitle" style="text-decoration: underline">Rui Melo</b></p>
+                    <p class="text">Nº Mecanográfico: 88889</p>
+                    <p class="text">Estudante de Licenciatura em Engenharia Informática (LEI)</p>
+                    <p class="text">Universidade de Aveiro (UA)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>          

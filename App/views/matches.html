@@ -1,0 +1,348 @@
+﻿<style>
+body {
+    margin: 0;
+    height: 100%;
+    overflow: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('images/Vy6xTwXX4ZvrWByiQQ35yGzx.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0px 0px 0px 0px;
+    background-attachment:scroll;
+    background-size: cover;
+    background-position: center;
+}
+
+/*Disposição dos players*/
+.field-player {
+    position: absolute;
+    width: 10rem;
+    text-align: center;
+}
+.field-avatar {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+}
+.field-player a {
+    display: inline-block;
+    padding: 0 .5rem;
+    background-color: rgba(0,0,0,0.75);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #FFF;
+    min-width: 8rem;
+    max-width: 10rem;
+    text-decoration: none;
+    border-radius: 2px;
+    margin: 0 0 1px;
+    overflow: hidden;
+    vertical-align: top;
+}
+.field-avatar img {
+    width: 4rem;
+    height: 4rem;
+}
+.pos_1_1 {
+    top: 295px;
+    left: 200px;
+}
+
+.pos_3_1 {
+    top: 260px;
+    left: 396px;
+}
+
+.pos_3_2 {
+    top: 260px;
+    left: 365px;
+}
+
+.pos_3_3 {
+    top: 260px;
+    left: 298px;
+}
+
+.pos_3_4 {
+    top: 260px;
+    left: 255px;
+}
+
+.pos_3_5 {
+    top: 260px;
+    left: 200px;
+}
+
+.pos_3_6 {
+    top: 260px;
+    left: 145px;
+}
+
+.pos_3_7 {
+    top: 260px;
+    left: 102px;
+}
+
+.pos_3_8 {
+    top: 260px;
+    left: 35px;
+}
+
+.pos_3_9 {
+    top: 260px;
+    left: 4px;
+}
+
+.pos_5_3 {
+    top: 195px;
+    left: 298px;
+}
+
+.pos_5_4 {
+    top: 195px;
+    left: 255px;
+}
+
+.pos_5_5 {
+    top: 195px;
+    left: 200px;
+}
+
+.pos_5_6 {
+    top: 195px;
+    left: 145px;
+}
+
+.pos_5_7 {
+    top: 195px;
+    left: 102px;
+}
+
+.pos_6_3 {
+    top: 155px;
+    left: 298px;
+}
+
+.pos_6_4 {
+    top: 155px;
+    left: 255px;
+}
+
+.pos_6_5 {
+    top: 155px;
+    left: 200px;
+}
+
+.pos_6_6 {
+    top: 155px;
+    left: 145px;
+}
+
+.pos_6_7 {
+    top: 155px;
+    left: 102px;
+}
+
+.pos_7_1 {
+    top: 125px;
+    left: 396px;
+}
+
+.pos_7_2 {
+    top: 125px;
+    left: 365px;
+}
+
+.pos_7_3 {
+    top: 125px;
+    left: 298px;
+}
+
+.pos_7_4 {
+    top: 125px;
+    left: 255px;
+}
+
+.pos_7_5 {
+    top: 125px;
+    left: 200px;
+}
+
+.pos_7_6 {
+    top: 125px;
+    left: 145px;
+}
+
+.pos_7_7 {
+    top: 125px;
+    left: 102px;
+}
+
+.pos_7_8 {
+    top: 125px;
+    left: 35px;
+}
+
+.pos_7_9 {
+    top: 125px;
+    left: 4px;
+}
+
+.pos_8_1 {
+    top: 95px;
+    left: 396px;
+}
+
+.pos_8_2 {
+    top: 95px;
+    left: 365px;
+}
+
+.pos_8_3 {
+    top: 95px;
+    left: 298px;
+}
+
+.pos_8_4 {
+    top: 95px;
+    left: 255px;
+}
+
+.pos_8_5 {
+    top: 95px;
+    left: 200px;
+}
+
+.pos_8_6 {
+    top: 95px;
+    left: 145px;
+}
+
+.pos_8_7 {
+    top: 95px;
+    left: 102px;
+}
+
+.pos_8_8 {
+    top: 95px;
+    left: 35px;
+}
+
+.pos_8_9 {
+    top: 95px;
+    left: 4px;
+}
+
+.pos_9_4 {
+    top: 60px;
+    left: 255px;
+}
+
+.pos_9_5 {
+    top: 60px;
+    left: 200px;
+}
+
+.pos_9_6 {
+    top: 60px;
+    left: 145px;
+}
+
+.pos_10_3 {
+    top: 30px;
+    left: 298px;
+}
+
+.pos_10_4 {
+    top: 30px;
+    left: 255px;
+}
+
+.pos_10_5 {
+    top: 30px;
+    left: 200px;
+}
+
+.pos_10_6 {
+    top: 30px;
+    left: 145px;
+}
+
+.pos_10_7 {
+    top: 30px;
+    left: 102px;
+}
+
+.pos_11_4 {
+    top: 20px;
+    left: 255px;
+}
+
+.pos_11_5 {
+    top: 20px;
+    left: 200px;
+}
+
+.pos_11_6 {
+    top: 20px;
+    left: 145px;
+}
+.nopa {
+    opacity: 1
+}
+
+
+
+</style>
+<section>
+    <div class="container" style="margin-top:50px; background-color:white;margin-bottom:100px;opacity:0.9" data-bind="with:matches">
+        
+        <div class="jumbotron"  style="background-color:transparent">
+            
+            <div class="col-md-2" ><img style="height:128px;width:128px" onerror="this.src='images/default-team-logo-500.png'" data-bind="attr:{src:'https://cdn.sofifa.org/18/teams/'+home_team.team_fifa_api_id+'.png'}" /></div>
+            <div class="col-md-3" ><a  data-bind="attr:{ href: '#teams/'+home_team.id+'/'+home_team.team_fifa_api_id, title: name}"><h2 data-bind="text:home_team.team_long_name"></h2></a></div>
+            <div class="col-md-1" ><h2 data-bind="text:home_team_goal"></h2></div>
+            <div class="col-md-1" ><h2 style="text-align:end" data-bind="text:away_team_goal"></h2></div>
+            <div class="col-md-3" ><a data-bind="attr:{ href: '#teams/'+away_team.id+'/'+away_team.team_fifa_api_id, title: name}" style="text-align:end"><h2 data-bind="text:away_team.team_long_name"></h2></a></div>
+            <div class="col-md-2" ><img style="height:128px;width:128px" onerror="this.src='images/default-team-logo-500.png'" data-bind="attr:{src:'https://cdn.sofifa.org/18/teams/'+away_team.team_fifa_api_id+'.png'}" /></div>
+           
+        </div>
+        <div class="col-md-2 col-md-offset-4"><h3><b>Macth date:</b></h3></div>
+        <div class="col-md-2 " > <h3 data-bind="text:date.split('T')[0]"></h3></div>
+        
+        <div class="col-md-5 nopa" style="background-image:url('images/field.png'); height:360px; width:480px;  margin-top:50px; position:relative; " >
+            <!--ko foreach:Home_player-->
+            <div class=" field-player" data-bind="css:CSSClass">
+                <span class="field-avatar">
+                    <img style=" " class="initial loaded" onerror="this.src='images/player.png'" data-bind="attr:{src:'https://cdn.sofifa.org/18/players/'+player_fifa_api_id+'.png', title:player_name}" />
+
+                </span>
+                <a data-bind="text:player_name,attr:{ href: '#players/'+id, title: name}"></a>
+            </div>
+                
+            <!--/ko-->        
+        </div>
+        <div class="col-md-5 col-md-offset-1 nopa" style="background-image:url('images/field.png'); height:360px; margin-top:50px; width:480px;  position:relative;" >
+            <!--ko foreach:Away_player-->
+            <div class="field-player" data-bind="css:CSSClass">
+                <span class="field-avatar">
+                    <img class="initial loaded" style="" onerror="this.src='images/player.png'" data-bind="attr:{src:'https://cdn.sofifa.org/18/players/'+player_fifa_api_id+'.png', title:player_name}" />
+                </span>
+                <a data-bind="text:player_name,attr:{ href: '#players/'+id, title: name}"></a>
+
+            </div>
+            <!--/ko--> 
+
+
+            
+        </div>
+        
+            
+        
+        
+       
+    </div>
+</section>

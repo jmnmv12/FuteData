@@ -1,0 +1,238 @@
+﻿<style>
+    body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url('images/976ad36dc7346ab4602cf76a5e6095f4.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 0px 0px 0px 0px;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+.player {
+    position: relative;
+    margin: 52px 0 2rem;
+    float: left;
+    display: inline;
+}
+.player .info {
+    color: #FFF;
+    float: left;
+}
+.player .info img{        
+    float:left;       
+}
+.player .stats {
+    background: #2B2C32;
+    color: #FFF;
+}
+.player .stats table td {
+    padding: 1.5rem;
+}
+.player .stats table td span {
+    padding: .3rem .4rem;    
+}
+
+.player .stats table, .player .teams table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;    
+}
+.amazing {
+    background-color:green;
+}
+.mediocre {
+    background-color: #F6BB43;
+}
+.bad {
+    background-color: #E77E23;
+}
+.super_bad{
+    background-color:red;
+}
+.col-3 {
+    width: 270px;
+}
+.list {
+    clear: none;
+    display: inline;
+    float: left;
+    margin: 0 10px;
+    margin-bottom: 0px;
+    padding: 0;
+    position: relative;
+}
+.mb-20 {
+    margin-bottom: 2rem !important;
+}
+.p1 {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.p1 li {
+    margin: 0;
+    padding: .3rem 0;
+    
+}
+.hi {
+    
+    display: inline-block;
+    line-height: 1;
+    padding: .3rem .4rem;
+    vertical-align: baseline;
+    color:white;
+}
+h5 {
+    font-size: 2rem;
+    color:white;
+}
+
+</style>
+
+<section>
+    <div class="container" style="margin-bottom:100px">
+        <div class="player" data-bind="foreach: players">
+            <!-- retângulo preto que aprsenta as informações do jogador -->
+            <div class="container info " style="background: #404146;">
+                <img onerror="this.src='images/player.png'" data-bind="attr:{src:'https://cdn.sofifa.org/18/players/'+player_fifa_api_id+'.png'}" />
+                <h2 data-bind="text:player_name"></h2>
+                <div class="meta" style="width:100%">
+                    <span><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+                    <span style="padding-right:100px" data-bind="html:birthday.split('T')[0]">
+                    </span>
+                    <span style="padding-right:100px" data-bind="html:'<b>Height:</b>'+height+'(cm)'"></span>
+                    <span style="padding-right:100px" data-bind="html:'<b>Weight:</b>'+weight+'(pounds)'"></span>
+                </div>             
+            </div>
+            <!-- retângulo preto mais escuro que apresenta algumas stats -->
+            <div class="stats">
+                <table>
+                    <tbody>
+                        <tr>
+                            <!-- ver quando há erro-->
+                            <td>Overall:<span onerror="this.alert(error)" id="label0" data-bind="html: player_attributes[0].overall_rating,css: { amazing : player_attributes[0].overall_rating >= 75 ,mediocre:player_attributes[0].overall_rating >= 60 && player_attributes[0].overall_rating<75,bad:player_attributes[0].overall_rating >= 45 && player_attributes[0].overall_rating<60,super_bad:player_attributes[0].overall_rating<45}"></span></td>
+                            <td>Potential:<span onerror="this.alert(error)" id="label1" data-bind="html: player_attributes[0].potential,css: { amazing : player_attributes[0].potential >= 75 ,mediocre:player_attributes[0].potential >= 60 && player_attributes[0].potential<75,bad:player_attributes[0].potential >= 45 && player_attributes[0].potential<60,super_bad:player_attributes[0].potential <45}"></span></td>
+                            <td>Preferred foot: <span onerror="this.alert(error)" data-bind="html: player_attributes[0].preferred_foot"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Zona onde é apresentada características mais especificas do jogador como cores diferentes a caracterizar as cacidades do jogador em cada característica -->
+            <div class="lists">
+                <div class="list col-3 mb-20">
+                    <div>
+                        <h5>Attacking</h5>
+                        <ul class="p1">
+                            <li><span class="hi" data-bind="html:player_attributes[0].crossing,css: { amazing : player_attributes[0].crossing >= 75 ,mediocre:player_attributes[0].crossing >= 60 && player_attributes[0].crossing<75,bad:player_attributes[0].crossing >= 45 && player_attributes[0].crossing<60,super_bad:player_attributes[0].crossing <45}"></span><span style="color:white"><b>Crossing</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].finishing,css: { amazing : player_attributes[0].finishing>=75 ,mediocre:player_attributes[0].finishing >=60 && player_attributes[0].finishing<75, bad:player_attributes[0].finishing >=45 && player_attributes[0].finishing<60,super_bad:player_attributes[0].finishing<45}"></span><span style="color:white"><b>Finishing</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].heading_accuracy,css: { amazing : player_attributes[0].heading_accuracy>=75 ,mediocre:player_attributes[0].heading_accuracy >=60 && player_attributes[0].heading_accuracy<75, bad:player_attributes[0].heading_accuracy >=45 && player_attributes[0].heading_accuracy<60,super_bad:player_attributes[0].heading_accuracy<45}"></span><span style="color:white"><b>Head accuracy</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].short_passing,css: { amazing : player_attributes[0].short_passing >= 75 ,mediocre:player_attributes[0].short_passing >= 60 && player_attributes[0].short_passing<75,bad:player_attributes[0].short_passing >= 45 && player_attributes[0].short_passing<60,super_bad:player_attributes[0].short_passing <45}"></span><span style="color:white"><b>Short passing</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].volleys,css: { amazing : player_attributes[0].volleys >= 75 ,mediocre:player_attributes[0].volleys >= 60 && player_attributes[0].volleys<75,bad:player_attributes[0].volleys >= 45 && player_attributes[0].volleys<60,super_bad:player_attributes[0].volleys <45}"></span><span style="color:white"><b>Volleys</b></span></li>
+                        </ul>
+                    </div>
+
+                            
+                </div>
+                <div class="list col-3 mb-20">
+                    <div>
+                        <h5>Skill</h5>
+                        <ul class="p1">
+                            <li><span class="hi" data-bind="html:player_attributes[0].dribbling,css: { amazing : player_attributes[0].dribbling >= 75 ,mediocre:player_attributes[0].dribbling >= 60 && player_attributes[0].dribbling<75,bad:player_attributes[0].dribbling >= 45 && player_attributes[0].dribbling<60,super_bad:player_attributes[0].dribbling <45}"></span><span style="color:white"><b>Dribbling</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].curve,css: { amazing : player_attributes[0].curve>=75 ,mediocre:player_attributes[0].curve >=60 && player_attributes[0].curve<75, bad:player_attributes[0].curve >=45 && player_attributes[0].curve<60,super_bad:player_attributes[0].curve<45}"></span><span style="color:white"><b>Curve</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].free_kick_accuracy,css: { amazing : player_attributes[0].free_kick_accuracy>=75 ,mediocre:player_attributes[0].free_kick_accuracy >=60 && player_attributes[0].free_kick_accuracy<75, bad:player_attributes[0].free_kick_accuracy >=45 && player_attributes[0].free_kick_accuracy<60,super_bad:player_attributes[0].free_kick_accuracy<45}"></span><span style="color:white"><b>Free Kick</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].long_passing,css: { amazing : player_attributes[0].long_passing >= 75 ,mediocre:player_attributes[0].long_passing >= 60 && player_attributes[0].long_passing<75,bad:player_attributes[0].long_passing >= 45 && player_attributes[0].long_passing<60,super_bad:player_attributes[0].long_passing <45}"></span><span style="color:white"><b>Long passing</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].ball_control,css: { amazing : player_attributes[0].ball_control >= 75 ,mediocre:player_attributes[0].ball_control >= 60 && player_attributes[0].ball_control<75,bad:player_attributes[0].ball_control >= 45 && player_attributes[0].ball_control<60,super_bad:player_attributes[0].ball_control <45}"></span><span style="color:white"><b>Ball control</b></span></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div class="list col-3 mb-20">
+                    <div>
+                        <h5>Movement</h5>
+                        <ul class="p1">
+                            <li><span class="hi" data-bind="html:player_attributes[0].acceleration,css: { amazing : player_attributes[0].acceleration >= 75 ,mediocre:player_attributes[0].acceleration >= 60 && player_attributes[0].acceleration<75,bad:player_attributes[0].acceleration >= 45 && player_attributes[0].acceleration<60,super_bad:player_attributes[0].acceleration <45}"></span><span style="color:white"><b>Acceleration</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].sprint_speed,css: { amazing : player_attributes[0].sprint_speed>=75 ,mediocre:player_attributes[0].sprint_speed >=60 && player_attributes[0].sprint_speed<75, bad:player_attributes[0].sprint_speed >=45 && player_attributes[0].sprint_speed<60,super_bad:player_attributes[0].sprint_speed<45}"></span><span style="color:white"><b>Sprint speed</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].agility,css: { amazing : player_attributes[0].agility>=75 ,mediocre:player_attributes[0].agility >=60 && player_attributes[0].agility<75, bad:player_attributes[0].agility >=45 && player_attributes[0].agility<60,super_bad:player_attributes[0].agility<45}"></span><span style="color:white"><b>Agility</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].reactions,css: { amazing : player_attributes[0].reactions >= 75 ,mediocre:player_attributes[0].reactions >= 60 && player_attributes[0].reactions<75,bad:player_attributes[0].reactions >= 45 && player_attributes[0].reactions<60,super_bad:player_attributes[0].reactions <45}"></span><span style="color:white"><b>Reactions</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].balance,css: { amazing : player_attributes[0].balance >= 75 ,mediocre:player_attributes[0].balance >= 60 && player_attributes[0].balance<75,bad:player_attributes[0].balance >= 45 && player_attributes[0].balance<60,super_bad:player_attributes[0].balance <45}"></span><span style="color:white"><b>Balance</b></span></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div class="list col-3 mb-20">
+                    <div>
+                        <h5>Power</h5>
+                        <ul class="p1">
+                            <li><span class="hi" data-bind="html:player_attributes[0].shot_power,css: { amazing : player_attributes[0].shot_power >= 75 ,mediocre:player_attributes[0].shot_power >= 60 && player_attributes[0].shot_power<75,bad:player_attributes[0].shot_power >= 45 && player_attributes[0].shot_power<60,super_bad:player_attributes[0].shot_power <45}"></span><span style="color:white"><b>Shot power</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].jumping,css: { amazing : player_attributes[0].jumping>=75 ,mediocre:player_attributes[0].jumping >=60 && player_attributes[0].jumping<75, bad:player_attributes[0].jumping >=45 && player_attributes[0].jumping<60,super_bad:player_attributes[0].jumping<45}"></span><span style="color:white"><b>Jumping</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].stamina,css: { amazing : player_attributes[0].stamina>=75 ,mediocre:player_attributes[0].stamina >=60 && player_attributes[0].stamina<75, bad:player_attributes[0].stamina >=45 && player_attributes[0].stamina<60,super_bad:player_attributes[0].stamina<45}"></span><span style="color:white"><b>Stamina</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].strength,css: { amazing : player_attributes[0].strength >= 75 ,mediocre:player_attributes[0].strength >= 60 && player_attributes[0].strength<75,bad:player_attributes[0].strength >= 45 && player_attributes[0].strength<60,super_bad:player_attributes[0].strength <45}"></span><span style="color:white"><b>Strength</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].long_shots,css: { amazing : player_attributes[0].long_shots >= 75 ,mediocre:player_attributes[0].long_shots >= 60 && player_attributes[0].long_shots<75,bad:player_attributes[0].long_shots >= 45 && player_attributes[0].long_shots<60,super_bad:player_attributes[0].long_shots <45}"></span><span style="color:white"><b>Long shots</b></span></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                <div class="list col-3 mb-20">
+                    <div>
+                        <h5>Mentality</h5>
+                        <ul class="p1">
+                            <li><span class="hi" data-bind="html:player_attributes[0].aggression,css: { amazing : player_attributes[0].aggression >= 75 ,mediocre:player_attributes[0].aggression >= 60 && player_attributes[0].aggression<75,bad:player_attributes[0].aggression >= 45 && player_attributes[0].aggression<60,super_bad:player_attributes[0].aggression <45}"></span><span style="color:white"><b>Aggression</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].interceptions,css: { amazing : player_attributes[0].interceptions>=75 ,mediocre:player_attributes[0].interceptions >=60 && player_attributes[0].interceptions<75, bad:player_attributes[0].interceptions >=45 && player_attributes[0].interceptions<60,super_bad:player_attributes[0].interceptions<45}"></span><span style="color:white"><b>Interceptions</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].positioning,css: { amazing : player_attributes[0].positioning>=75 ,mediocre:player_attributes[0].positioning >=60 && player_attributes[0].positioning<75, bad:player_attributes[0].positioning >=45 && player_attributes[0].positioning<60,super_bad:player_attributes[0].positioning<45}"></span><span style="color:white"><b>Positioning</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].vision,css: { amazing : player_attributes[0].vision >= 75 ,mediocre:player_attributes[0].vision >= 60 && player_attributes[0].vision<75,bad:player_attributes[0].vision >= 45 && player_attributes[0].vision<60,super_bad:player_attributes[0].vision <45}"></span><span style="color:white"><b>Vision</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].penalties,css: { amazing : player_attributes[0].penalties >= 75 ,mediocre:player_attributes[0].penalties >= 60 && player_attributes[0].penalties<75,bad:player_attributes[0].penalties >= 45 && player_attributes[0].penalties<60,super_bad:player_attributes[0].penalties <45}"></span><span style="color:white"><b>Penalties</b></span></li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+                <div class="list col-3 mb-20">
+                    <div>
+                        <h5>Defending</h5>
+                        <ul class="p1">
+                            <li><span class="hi" data-bind="html:player_attributes[0].marking,css: { amazing : player_attributes[0].marking >= 75 ,mediocre:player_attributes[0].marking >= 60 && player_attributes[0].marking<75,bad:player_attributes[0].marking >= 45 && player_attributes[0].marking<60,super_bad:player_attributes[0].marking <45}"></span><span style="color:white"><b>Marking</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].standing_tackle,css: { amazing : player_attributes[0].standing_tackle>=75 ,mediocre:player_attributes[0].standing_tackle >=60 && player_attributes[0].standing_tackle<75, bad:player_attributes[0].standing_tackle >=45 && player_attributes[0].standing_tackle<60,super_bad:player_attributes[0].standing_tackle<45}"></span><span style="color:white"><b>Standing tackle</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].sliding_tackle,css: { amazing : player_attributes[0].sliding_tackle>=75 ,mediocre:player_attributes[0].sliding_tackle >=60 && player_attributes[0].sliding_tackle<75, bad:player_attributes[0].sliding_tackle >=45 && player_attributes[0].sliding_tackle<60,super_bad:player_attributes[0].sliding_tackle<45}"></span><span style="color:white"><b>Sliding tackle</b></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="list col-3 mb-20">
+                    <div>
+                        <h5>Goalkeeping</h5>
+                        <ul class="p1">
+                            <li><span class="hi" data-bind="html:player_attributes[0].gk_diving,css: { amazing : player_attributes[0].gk_diving >= 75 ,mediocre:player_attributes[0].gk_diving >= 60 && player_attributes[0].gk_diving<75,bad:player_attributes[0].gk_diving >= 45 && player_attributes[0].gk_diving<60,super_bad:player_attributes[0].gk_diving <45}"></span><span style="color:white"><b>GK diving</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].gk_handling,css: { amazing : player_attributes[0].gk_handling>=75 ,mediocre:player_attributes[0].gk_handling>=60 && player_attributes[0].gk_handling<75, bad:player_attributes[0].gk_handling >=45 && player_attributes[0].gk_handling<60,super_bad:player_attributes[0].gk_handling<45}"></span><span style="color:white"><b>GK handling</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].gk_kicking,css: { amazing : player_attributes[0].gk_kicking>=75 ,mediocre:player_attributes[0].gk_kicking >=60 && player_attributes[0].gk_kicking<75, bad:player_attributes[0].gk_kicking>=45 && player_attributes[0].gk_kicking<60,super_bad:player_attributes[0].gk_kicking<45}"></span><span style="color:white"><b>GK kicking</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].gk_positioning,css: { amazing : player_attributes[0].gk_positioning>=75 ,mediocre:player_attributes[0].gk_positioning >=60 && player_attributes[0].gk_positioning<75, bad:player_attributes[0].gk_positioning>=45 && player_attributes[0].gk_positioning<60,super_bad:player_attributes[0].gk_positioning<45}"></span><span style="color:white"><b>GK positioning</b></span></li>
+                            <li><span class="hi" data-bind="html:player_attributes[0].gk_reflexes,css: { amazing : player_attributes[0].gk_reflexes>=75 ,mediocre:player_attributes[0].gk_reflexes >=60 && player_attributes[0].gk_reflexes<75, bad:player_attributes[0].gk_reflexes>=45 && player_attributes[0].gk_reflexes<60,super_bad:player_attributes[0].gk_reflexes<45}"></span><span style="color:white"    ><b>GK reflexes</b></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="list col-3 mb-20">
+                    <div>
+                        <h5>Color Code</h5>
+                        <ul class="p1">
+                            <li><span class="hi" style="background-color:green;padding:.6rem.6rem" ></span><span style="color:white"><b>Amazing</b></span></li>
+                            <li><span class="hi" style="background-color:#F6BB43;padding:.6rem.6rem"></span><span style="color:white"><b>Mediocre</b></span></li>
+                            <li><span class="hi" style="background-color: #E77E23;padding:.6rem.6rem"></span><span style="color:white"><b>Bad</b></span></li>
+                            <li><span class="hi" style="background-color:red;padding:.6rem.6rem"></span><span style="color:white"><b>Super bad</b></span></li>
+                            
+                        </ul>
+                    </div>
+                </div>        
+            </div>
+            
+        </div>
+    </div>
+    
+    
+</section>
